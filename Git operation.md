@@ -103,7 +103,12 @@ git checkout -d develop
 
 查看本地分支:
 ```
-git branch:
+git branch -a
+```
+
+合并本地分支(合并develop到当前分支):
+```
+git merge develop
 ```
 
 查看远程仓库分支:
@@ -111,6 +116,20 @@ git branch:
 git remote show origin
 ```
 
+删除远程仓库分支(develop)：
+```
+git push origin --delete develop
+```
+
+更新本地的远程跟踪分支列表:
+```
+git fetch -p
+```
+
+重命名当前分支(master->main)：
+```
+git branch -m  master  main
+```
 ## 1.4错误回退
 1.查看分支提交历史，确认回退版本commit_id
 ```
