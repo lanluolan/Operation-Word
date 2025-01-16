@@ -193,9 +193,9 @@ git reset <commit_id>    #回退到指定历史版本
 git reset HEAD^          #回退到上一个版本
 git reset HEAD~n         #回退n个版本（当前版本也算） 
 
---soft ：只回退暂存区，不回退工作区
---mixed(默认) ：回退暂存区和工作区
---hard ：回退暂存区和工作区，并删除未跟踪的文件
+--soft ：回退Local，不回退Staging,Disk
+--mixed(默认) ：回退Local和Staging，不回退Disk
+--hard ：回退Local和Staging和Disk
 ```
 
 ![](pic/1.png)              
