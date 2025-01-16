@@ -182,7 +182,9 @@ git log
 2.进行版本回退（本地仓库）
 方案一：
 ```
-git reset --hard <commit_id>
+git reset --hard <commit_id>    回退到指定历史版本
+git reset --hard HEAD^          回退到上一个版本
+git reset --hard HEAD~n         回退n个版本（当前版本也算） 
 ```
 
 ![](pic/1.png)              
