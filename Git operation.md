@@ -205,7 +205,11 @@ git push origin <branchName> -f #强制推送到远程仓库(HEAD不同步-推�
 
 方案二：
 ```
-git revert <commit_id>
+git revert <commit_id>                    #撤销指定历史版本
+git revert <commit_id1>~..<commit_id2>    #撤销指定区间的版本
+git revert HEAD^                          #撤销上一个版本
+
+注意：回退Disk,不回退Local和Staging
 ```
 
 ![](pic/3.png)
