@@ -186,6 +186,11 @@ git restore --staged <file>     #取消暂存区内的文件修改
 ```
 git log
 ```
+查看提交历史
+```
+git reflog
+```
+
 2.进行版本回退（本地仓库Local）
 方案一：
 ```
@@ -207,9 +212,9 @@ git push origin <branchName> -f #强制推送到远程仓库(HEAD不同步-推�
 ```
 git revert <commit_id>                    #撤销指定历史版本
 git revert <commit_id1>~..<commit_id2>    #撤销指定区间的版本
-git revert HEAD^                          #撤销上一个版本
+git revert HEAD^                          #撤销上一个版本（非当前版本）
 
-注意：回退Disk,不回退Local和Staging
+注意：回退Disk,不回退Local和Staging(推荐公有分支)
 ```
 
 ![](pic/3.png)
