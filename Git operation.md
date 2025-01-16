@@ -196,6 +196,8 @@ git reset HEAD~n         #回退n个版本（当前版本也算）
 --soft ：回退Local，不回退Staging,Disk
 --mixed(默认) ：回退Local和Staging，不回退Disk
 --hard ：回退Local和Staging和Disk
+
+git push origin <branchName> -f #强制推送到远程仓库(HEAD不同步-推荐私有分支)
 ```
 
 ![](pic/1.png)              
