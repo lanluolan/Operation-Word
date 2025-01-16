@@ -82,6 +82,10 @@ git config --global user.email "邮箱"
 ```
 git init
 ```
+首次从远程仓库获取代码库的完整副本:
+```
+git clone
+```
 
 连接远程仓库:
 ```
@@ -133,17 +137,18 @@ git pull origin master
 
 ## 1.3 分支
 
-创建并切换到develop分支:
+创建并切换到develop本地分支:
 ```
 git checkout -b develop
+git checkout develop    #切换到develop分支
 ```
 
-删除develop分支:
+删除develop本地分支:
 ```
 git checkout -d develop
 ```
 
-查看本地分支:
+查看远程仓库分支+当前本地分支:
 ```
 git branch -a
 ```
@@ -156,6 +161,7 @@ git merge develop
 查看远程仓库分支:
 ```
 git remote show origin
+git remote prune origin     #刷新本地分支仓库
 ```
 
 删除远程仓库分支(develop):
@@ -172,12 +178,23 @@ git fetch -p
 ```
 git branch -m  master  main
 ```
+保存当前工作状态:
+```
+git stash
+git stash list  #查看stash列表
+（保存后才可切换分支checkout）
+git stash pop   #恢复stash
+```
+同步分支修改部分到当前分支：
+```
+git cherry-pick <branchName>
+```
 
 
 ## 1.4错误回退
 0恢复文件（Disk）
 ```
-git restore <file>  #恢复文件到最近一次提交时的状态
+git restore <file>  #恢复文件到最近一次提交时的状态(包括删除操作)
 git restore .       #恢复所有文件到最近一次提交时的状态（不包括未跟踪的文件）
 git restore --source=<commit_id> <file>     #恢复指定文件到指定commit_id的版本
 git restore --staged <file>     #取消暂存区内的文件修改
