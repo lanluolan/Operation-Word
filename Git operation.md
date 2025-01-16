@@ -175,28 +175,27 @@ git branch -m  master  main
 
 
 ## 1.4错误回退
-0.1恢复文件（Disk）
+0恢复文件（Disk）
 ```
 git restore <file>  #恢复文件到最近一次提交时的状态
 git restore .       #恢复所有文件到最近一次提交时的状态（不包括未跟踪的文件）
 git restore --source=<commit_id> <file>     #恢复指定文件到指定commit_id的版本
 git restore --staged <file>     #取消暂存区内的文件修改
 ```
-0.2恢复文件（Staging）
-```
-git checkout HEAD <file>       #恢复文件到暂存区（暂存区）
-```
-
 1.查看分支提交历史,确认回退版本commit_id
 ```
 git log
 ```
-2.进行版本回退（本地仓库）
+2.进行版本回退（本地仓库Local）
 方案一：
 ```
-git reset --hard <commit_id>    回退到指定历史版本
-git reset --hard HEAD^          回退到上一个版本
-git reset --hard HEAD~n         回退n个版本（当前版本也算） 
+git reset <commit_id>    #回退到指定历史版本
+git reset HEAD^          #回退到上一个版本
+git reset HEAD~n         #回退n个版本（当前版本也算） 
+
+--soft ：只回退暂存区，不回退工作区
+--mixed(默认) ：回退暂存区和工作区
+--hard ：回退暂存区和工作区，并删除未跟踪的文件
 ```
 
 ![](pic/1.png)              
