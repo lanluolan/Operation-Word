@@ -175,6 +175,13 @@ git branch -m  master  main
 
 
 ## 1.4错误回退
+0.恢复文件
+```
+git restore <file>  #恢复文件到最近一次提交时的状态
+git restore .       #恢复所有文件到最近一次提交时的状态（不包括未跟踪的文件）
+git restore --source=<commit_id> <file>     #恢复指定文件到指定commit_id的版本
+git restore --staged <file>     #取消暂存区内的文件修改
+```
 1.查看分支提交历史,确认回退版本commit_id
 ```
 git log
