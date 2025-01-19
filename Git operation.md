@@ -150,7 +150,7 @@ git checkout develop        # 切换到develop分支
 
 2. 删除develop分支:
 ```
-git checkout -d develop     # 删除本地分支
+git checkout -d develop     # 删除本地分支（-D强制删除）
 git push origin -d develop  # 删除远程分支
 ```
 
