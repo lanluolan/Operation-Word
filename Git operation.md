@@ -192,7 +192,7 @@ git cherry-pick <branchName>
 
 
 ## 1.4错误回退
-0恢复文件（Disk）
+0.恢复文件（Disk）
 ```
 git restore <file>  #恢复文件到最近一次提交时的状态(包括删除操作)
 git restore .       #恢复所有文件到最近一次提交时的状态（不包括未跟踪的文件）
