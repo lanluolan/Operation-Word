@@ -90,7 +90,7 @@ git remote add origin https://…….git
 
 3. 首次从远程仓库获取代码库的完整副本:
 ```
-git clone
+git clone https://…….git
 ```
 
 ## 1.2 工作
@@ -134,9 +134,10 @@ git commit --amend （进入vim编辑器修改）
 git push origin master
 ```
 
-7. 下拉origin库下的master分支:
+7. 下拉origin库:
 ```
-git pull origin master
+git pull origin             # 下拉所有分支
+git pull origin master      # 下拉master分支
 ``` 
 
 ## 1.3 分支
