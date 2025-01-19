@@ -1,5 +1,7 @@
 # Git operation
 
+![](pic/Git_Branch.png)
+
 ## 0.Linux
 1. 创建空文件:
 ```
@@ -88,7 +90,12 @@ git init
 git remote add origin https://…….git
 ```
 
-3. 首次从远程仓库获取代码库的完整副本:
+3. 查询远程仓库:
+```
+git remote
+```
+
+4. 首次从远程仓库获取代码库的完整副本:
 ```
 git clone https://…….git
 ```
@@ -134,11 +141,17 @@ git commit --amend （进入vim编辑器修改）
 git push origin master
 ```
 
-7. 下拉origin库:
+7. 拉取origin库:（fetch+merge）
 ```
-git pull origin             # 下拉所有分支
-git pull origin master      # 下拉master分支
-``` 
+git pull origin             # 拉取所有分支
+git pull origin master      # 拉取master分支
+```
+
+8. 抓取origin库:
+```
+git fetch origin            # 抓取所有分支
+git fetch origin master     # 抓取master分支
+```
 
 ## 1.3 分支
 
@@ -150,7 +163,8 @@ git checkout develop        # 切换到develop分支
 
 2. 删除develop分支:
 ```
-git checkout -d develop     # 删除本地分支（git branch -D develop 强制删除）
+git branch -d develop     # 删除本地分支
+（git branch -D develop 强制删除）
 git push origin -d develop  # 删除远程分支
 ```
 
@@ -170,17 +184,12 @@ git remote show origin
 git remote prune origin    # 刷新本地分支仓库
 ```
 
-6. 更新本地的远程跟踪分支列表:
-```
-git fetch -p
-```
-
-7. 重命名当前分支(master->main):
+6. 重命名当前分支(master->main):
 ```
 git branch -m  master  main
 ```
 
-8. 保存当前工作状态:
+7. 保存当前工作状态:
 ```
 git stash
 git stash list              # 查看stash列表
@@ -188,7 +197,7 @@ git stash list              # 查看stash列表
 git stash pop               # 恢复stash
 ```
 
-9.  同步分支修改部分到当前分支：
+8.  同步分支修改部分到当前分支：
 ```
 git cherry-pick <branchName>
 ```
