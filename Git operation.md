@@ -147,9 +147,10 @@ git checkout -b develop
 git checkout develop        # 切换到develop分支
 ```
 
-2. 删除develop本地分支:
+2. 删除develop分支:
 ```
-git checkout -d develop
+git checkout -d develop     # 删除本地分支
+git push origin -d develop  # 删除远程分支
 ```
 
 3. 查看远程仓库分支+当前本地分支:
@@ -168,22 +169,17 @@ git remote show origin
 git remote prune origin    # 刷新本地分支仓库
 ```
 
-6. 删除远程仓库分支(develop):
-```
-git push origin --delete develop
-```
-
-7. 更新本地的远程跟踪分支列表:
+6. 更新本地的远程跟踪分支列表:
 ```
 git fetch -p
 ```
 
-8. 重命名当前分支(master->main):
+7. 重命名当前分支(master->main):
 ```
 git branch -m  master  main
 ```
 
-9. 保存当前工作状态:
+8. 保存当前工作状态:
 ```
 git stash
 git stash list              # 查看stash列表
@@ -191,7 +187,7 @@ git stash list              # 查看stash列表
 git stash pop               # 恢复stash
 ```
 
-10. 同步分支修改部分到当前分支：
+9.  同步分支修改部分到当前分支：
 ```
 git cherry-pick <branchName>
 ```
