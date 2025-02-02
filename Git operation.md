@@ -1,5 +1,7 @@
 # Git operation
 
+
+![](pic/Git_Process.png)
 ![](pic/Git_Branch.png)
 
 ## 0.Linux
