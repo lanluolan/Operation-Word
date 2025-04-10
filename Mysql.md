@@ -33,32 +33,54 @@ use xxx;
 ```
 create database xxx;
 ```
-4. 创建数据库:
-```
-create database xxx;
-```
-5. 删除数据库:
+4. 删除数据库:
 ```
 drop database xxx;
 ```
-
-6. 导入sql文件-"文件路径"（先建立同名数据库）：
+5. 导入sql文件-"文件路径"（先建立同名数据库）：
 ```
 source xxx.sql;
 ```
 
 
 ## 数据表
-1. 查看数据表:
+1. 查看所有数据表:
 ```
 show tables;
 ```
-
-1. 筛选数据:
+2. 创建数据表：
 ```
-select * from (表) where xxx='xxx' and xxx='xxx';
+create table 表名(
+    id INT AUTO_INCREMENT PRIMARY KEY,              // AUTO_INCREMENT:自增
+                                                    // PRIMARY KEY:主键
+    username VARCHAR(50) NOT NULL,                  // NOT NULL:不为空
+    email VARCHAR(100) UNIQUE NOT NULL,             // UNIQUE:值唯一
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  // DEFAULT CURRENT_TIMESTAMP:默认值为当前时间戳
+); 
 ```
-1. 删除数据：
+3. 查看表结构
 ```
-delete from (表) where xxx='xxx';
+DESCRIBE 表名;
+```
+![](pic/DESCRIBE_table.png)
+4. 删除数据表
+```
+DROP TABLE 表名;
+```
+## 数据操作
+1. 插入数据
+```
+INSERT INTO 表名 (username, email) VALUES ('Alice', 'alice@example.com');
+```
+2. 查询数据
+```
+select * from 表名 where xxx='xxx' and xxx='xxx';
+```
+3. 删除数据
+```
+delete from 表名 where xxx='xxx';
+```
+4. 更新数据
+```
+update 表名 set xxx='xxx' where xxx='xxx';
 ```
