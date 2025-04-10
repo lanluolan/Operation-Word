@@ -5,7 +5,7 @@
 ![](pic/Git_Branch.png)
 
 ## 0.Linux
-1. 创建空文件:  
+1. 创建空文件:   
 ```
 touch [fileName]
 ```
