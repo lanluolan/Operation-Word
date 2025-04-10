@@ -94,8 +94,10 @@ git remote add origin https://…….git
 
 3. 查询远程仓库:
 ```
-git remote
+git remote                  # 远程仓库名称
+git remote -v               # 远程仓库详细信息
 ```
+![](pic/git_remote_v.png)
 
 4. 首次从远程仓库获取代码库的完整副本:
 ```
@@ -113,9 +115,9 @@ git status
 ```
 git log
 git log --all               # 显示所有分支
-git log --pretty=oneline    #显示一行
-git log --abbrev-commit     #显示简略的commit_id
-git log --graph             #以图示显示
+git log --pretty=oneline    # 显示一行
+git log --abbrev-commit     # 显示简略的commit_id
+git log --graph             # 以图示显示
 ```
 ![](pic/git_log.png)  
 第一行：commit_id（指向某仓库）
@@ -125,7 +127,7 @@ git log --graph             #以图示显示
 3. 添加文件:
 ```
 git add [fileName]
-git add .                   #添加所有文件
+git add .                   # 添加所有文件
 ```
 
 4. 添加注释:
@@ -149,49 +151,57 @@ git pull origin             # 拉取所有分支
 git pull origin master      # 拉取master分支
 ```
 
-8. 抓取origin库:
+## 1.3 分支
+
+1. 抓取origin库:
 ```
 git fetch origin            # 抓取所有分支
 git fetch origin master     # 抓取master分支
 ```
 
-## 1.3 分支
-
-1. 创建并切换到develop本地分支:
+2. 创建并切换到develop本地分支:
 ```
 git checkout -b develop
 git checkout develop        # 切换到develop分支
 ```
 
-2. 删除develop分支:
+3. 删除develop分支:
 ```
-git branch -d develop     # 删除本地分支
+git branch -d develop       # 删除本地分支
 （git branch -D develop 强制删除）
 git push origin -d develop  # 删除远程分支
 ```
 
-3. 查看远程仓库分支+当前本地分支:
+4. 查看分支(先fetch):
 ```
-git branch -a
+git branch -a               # 远程仓库分支+本地分支
+git branch                  # 查看本地分支
+git branch -r               # 查看远程分支
 ```
 
-4. 合并本地分支(合并develop到当前分支):
+5.本地分支与远程分支关联:
+```
+git branch -vv              # 查看本地分支关联的远程分支
+git branch -u origin/master # 本地分支关联远程分支
+```
+
+6. 合并本地分支(合并develop到当前分支):
 ```
 git merge develop
 ```
 
-5. 查看远程仓库分支:
+7. 查看远程仓库分支:
 ```
 git remote show origin
 git remote prune origin    # 刷新本地分支仓库
 ```
 
-6. 重命名当前分支(master->main):
+8. 重命名当前分支(master->main):
 ```
 git branch -m  master  main
 ```
 
-7. 保存当前工作状态:
+9. 保存当前工作状态:
 ```
 git stash
 git stash list              # 查看stash列表
@@ -199,9 +209,14 @@ git stash list              # 查看stash列表
 git stash pop               # 恢复stash
 ```
 
-8.  同步分支修改部分到当前分支：
+10.  同步分支修改部分到当前分支：
 ```
 git cherry-pick <branchName>
+```
+
+11. 首次推送本地分支到远程:
+```
+git push -u origin master   # -u:自动关联分支
 ```
 
 ## 1.4版本回退
@@ -225,15 +240,15 @@ git reflog
 2. 进行版本回退（本地仓库Local）
 方案一：
 ```
-git reset <commit_id>    #回退到指定历史版本
-git reset HEAD^          #回退到上一个版本
-git reset HEAD~n         #回退n个版本（当前版本也算） 
+git reset <commit_id>    # 回退到指定历史版本
+git reset HEAD^          # 回退到上一个版本
+git reset HEAD~n         # 回退n个版本（当前版本也算） 
 
 --soft ：回退Local，不回退Staging,Disk
 --mixed(默认) ：回退Local和Staging，不回退Disk
 --hard ：回退Local和Staging和Disk
 
-git push origin <branchName> -f #强制推送到远程仓库(HEAD不同步-推荐私有分支)
+git push origin <branchName> -f # 强制推送到远程仓库(HEAD不同步-推荐私有分支)
 ```
 
 ![](pic/1.png)              
@@ -241,9 +256,9 @@ git push origin <branchName> -f #强制推送到远程仓库(HEAD不同步-推�
 
 方案二：
 ```
-git revert <commit_id>                    #撤销指定历史版本
-git revert <commit_id1>~..<commit_id2>    #撤销指定区间的版本
-git revert HEAD^                          #撤销上一个版本（非当前版本）
+git revert <commit_id>                    # 撤销指定历史版本
+git revert <commit_id1>~..<commit_id2>    # 撤销指定区间的版本
+git revert HEAD^                          # 撤销上一个版本（非当前版本）
 
 注意：回退Disk,不回退Local和Staging(推荐公有分支)
 ```
